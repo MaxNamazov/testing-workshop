@@ -2,10 +2,10 @@ import React from 'react'
 import AccordionContents from './AccordionContents'
 
 class Accordion extends React.Component {
-  state = {openIndex: 0}
-  setOpenIndex = openIndex => this.setState({openIndex})
+  state = {openIndexes: [0]}
+  setOpenIndex = openIndex => this.setState({openIndexes: [openIndex]})
   render() {
-    const {openIndex} = this.state
+    const {openIndexes} = this.state
     return (
       <div>
         {this.props.items.map((item, index) => (
@@ -13,7 +13,7 @@ class Accordion extends React.Component {
             <button onClick={() => this.setOpenIndex(index)}>
               {item.title}
             </button>
-            {index === openIndex ? (
+            {openIndexes.includes(index) ? (
               <AccordionContents>{item.contents}</AccordionContents>
             ) : null}
           </React.Fragment>
