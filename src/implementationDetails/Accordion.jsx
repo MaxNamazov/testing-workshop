@@ -10,7 +10,7 @@ class Accordion extends React.Component {
       <div>
         {this.props.items.map((item, index) => (
           <React.Fragment key={index}>
-            <button onClick={() => this.setOpenIndex(index)}>
+            <button onClick={this.setOpenIndex}>
               {item.title}
             </button>
             {openIndexes.includes(index) ? (
