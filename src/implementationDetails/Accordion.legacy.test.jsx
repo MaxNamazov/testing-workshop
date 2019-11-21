@@ -7,9 +7,9 @@ Enzyme.configure({adapter: new EnzymeAdapter()})
 
 test('setOpenIndex sets the open index state properly', () => {
   const wrapper = mount(<Accordion items={[]} />)
-  expect(wrapper.state('openIndex')).toBe(0)
+  expect(wrapper.state('openIndexes')).toEqual([0])
   wrapper.instance().setOpenIndex(1)
-  expect(wrapper.state('openIndex')).toBe(1)
+  expect(wrapper.state('openIndexes')).toEqual([1])
 })
 
 test('Accordion renders AccordionContents with the item contents', () => {
